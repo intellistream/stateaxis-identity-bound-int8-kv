@@ -1,0 +1,13 @@
+{
+  "schema_version": "stateaxis-mod-provenance/v1",
+  "source_repository": "Qixin-Gaoke/stateaxis",
+  "source_commit": "7562b5fa6f42e2e045a877b53ac934739e2cf230",
+  "source_issues": [
+    14
+  ],
+  "source_evidence": "docs/history/reports/ISSUE14_INT8_KV_CLOSURE.md",
+  "copied_evidence": "evidence/ISSUE14_INT8_KV_CLOSURE.md",
+  "copied_evidence_sha256": "5f27ed34b8abb01e2221f78120774a2f67a61a296dac8a2ac2c166e51adb5cda",
+  "qualification_inherited": false,
+  "implementation_extracted": false
+}

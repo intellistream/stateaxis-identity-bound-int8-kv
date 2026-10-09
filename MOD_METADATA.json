@@ -1,0 +1,44 @@
+{
+  "schema_version": "vllm-hust-mod-metadata-v1",
+  "mod_id": "org.vllm-hust.stateaxis-identity-bound-int8-kv",
+  "repository": "stateaxis-identity-bound-int8-kv",
+  "display_name": "stateaxis-identity-bound-int8-kv",
+  "canonical_repository": "https://github.com/intellistream/stateaxis-identity-bound-int8-kv",
+  "responsibility": {
+    "organization": "intellistream",
+    "maintainers": [
+      {
+        "name": "Shuhao Zhang (Tony)",
+        "github": "ShuhaoZhangTony"
+      }
+    ],
+    "advisor_status": "not_declared",
+    "advisors": []
+  },
+  "lifecycle": {
+    "status": "experimental",
+    "default_enabled": false,
+    "activation_contract": "Import-only research descriptor; activation is refused until the StateAxis host contract and independent implementation are reviewed.",
+    "rollback_contract": "Disable or forget the descriptor and run the unchanged StateAxis host without this MOD."
+  },
+  "scope": {
+    "mechanism": "identity_bound_int8_kv_cache",
+    "supported_workloads": [],
+    "out_of_scope": [
+      "general performance claims",
+      "automatic inheritance from StateAxis aggregate evidence"
+    ]
+  },
+  "evidence": {
+    "qualification": "not-beneficial-in-tested-cell",
+    "latest_result": "evidence/ISSUE14_INT8_KV_CLOSURE.md",
+    "index": "EVIDENCE.md",
+    "performance_claims": [
+      {
+        "label": "not-beneficial-in-tested-cell",
+        "scope": "frozen StateAxis source evidence only",
+        "result": "Component performance was positive, but full-model token exactness failed."
+      }
+    ]
+  }
+}
