@@ -9,5 +9,9 @@
   "copied_evidence": "evidence/ISSUE14_INT8_KV_CLOSURE.md",
   "copied_evidence_sha256": "5f27ed34b8abb01e2221f78120774a2f67a61a296dac8a2ac2c166e51adb5cda",
   "qualification_inherited": false,
-  "implementation_extracted": false
+  "implementation_extracted": false,
+  "licensing": {
+    "scaffolding": "Apache-2.0",
+    "copied_evidence": "No additional license grant is inferred from this split."
+  }
 }
