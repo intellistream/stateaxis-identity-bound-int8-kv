@@ -1,0 +1,91 @@
+{
+  "schema_version": "stateaxis-mod-on-off/v1",
+  "date_utc": "2026-10-11",
+  "mod_id": "org.vllm-hust.stateaxis-identity-bound-int8-kv",
+  "mod_version": "0.2.0",
+  "research_manifest_sha256": "237bf85704aba4bb30fb75dd8b73d06bb2dd70dfdb47ff4de855575a3691833f",
+  "evidence_label": "manager-contract-identity-bound-int8-kv-non-performance",
+  "performance_qualified": false,
+  "hardware_execution": false,
+  "host": {
+    "repository": "Qixin-Gaoke/stateaxis",
+    "merge_commit": "8f40edc7e30a2371fe2a00eed8f0224f99e05616",
+    "activation_mode": "audit_only",
+    "worker_dispatch_changed": false,
+    "int8_state_allocated": false,
+    "authoritative_cache_dtype": "bf16"
+  },
+  "manager": {
+    "inspect": "passed",
+    "check": "passed_with_expected_experimental_degradation",
+    "plan": "passed",
+    "dry_run": "passed",
+    "managed_assembly_check_process": "passed",
+    "off_assembly_identity_sha256": "330f3b47b0f2f054bbdedb5342e845828ae63accf360b42951702a17c54412a0",
+    "on_assembly_identity_sha256": "e5b72aea712c14c12b6d7ae7b0a2ba976951c8afd6cab081c7a40bb19baa06d7",
+    "direct_environment_activation_rejected": true
+  },
+  "frozen_artifact": {
+    "model": "Qwen2.5-14B BF16",
+    "execution_config_sha256": "09682f76a33b63dd5312aa7a0f7b43f9b2e1144cbd22c14ba952b9a9907e0815",
+    "artifact_identity_sha256": "f82b25e00bd40891a870987087ca285dbc6a7d8c42d19d2790b6328b30cac38f",
+    "weights_digest": "4ca9cbc269c4605424d3170d614f43854388b19bee70ade62c28ce054ee9033a",
+    "policy": "fused_gate_up_aclnn_swiglu",
+    "prefix_extension_mode": "paged_append_prefill"
+  },
+  "validation": {
+    "python_tests": "3 passed",
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "rust_library_tests": "420 passed",
+    "cargo_check_lib_bins": "passed",
+    "native_state_engine_build": "passed"
+  },
+  "deterministic_on_off": {
+    "request": "one four-token cold prefill with max_new_tokens=2",
+    "off": {
+      "mod_identity_present": false,
+      "candidate_batches": 0,
+      "candidate_write_tokens": 0,
+      "projected_bf16_bytes": 0,
+      "projected_int8_bytes": 0,
+      "static_scale_bytes": 0,
+      "accuracy_blocked_batches": 0
+    },
+    "on": {
+      "mod_identity_present": true,
+      "candidate_batches": 2,
+      "candidate_write_tokens": 5,
+      "projected_bf16_bytes": 983040,
+      "projected_int8_bytes_excluding_static_scales": 491520,
+      "static_scale_bytes": 196608,
+      "accuracy_blocked_batches": 2,
+      "int8_dispatches": 0
+    }
+  },
+  "historical_real_npu_result": {
+    "hardware_execution": true,
+    "component_kv_byte_reduction": "about 50 percent",
+    "component_p50_improvement_percent": 5.7574,
+    "full_model_oracle_tokens": [525, 264, 536],
+    "full_model_candidate_tokens": [525, 264, 264],
+    "tested_layer_ranges": [
+      "0:48",
+      "0:34",
+      "14:48",
+      "0:14",
+      "14:34",
+      "34:48",
+      "0:1",
+      "47:48"
+    ],
+    "classification": "component_positive_full_model_accuracy_negative",
+    "matched_serving_performance": "not_run_accuracy_advance_gate_failed"
+  },
+  "limitations": [
+    "the active revision audits eligibility and storage projection but does not quantize or dispatch KV state",
+    "projected bytes are deterministic schema accounting, not measured HBM or serving capacity",
+    "the historical real-NPU component result does not qualify online latency or throughput",
+    "fresh richer-schema accuracy qualification is required before repeated matched serving tests"
+  ]
+}

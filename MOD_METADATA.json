@@ -18,26 +18,28 @@
   "lifecycle": {
     "status": "experimental",
     "default_enabled": false,
-    "activation_contract": "Import-only research descriptor; activation is refused until the StateAxis host contract and independent implementation are reviewed.",
-    "rollback_contract": "Disable or forget the descriptor and run the unchanged StateAxis host without this MOD."
+    "activation_contract": "Manifest 0.3 active, default-off, ECPA-only activation of the hash-bound audit-only INT8 KV schema; rejected device dispatch remains disabled.",
+    "rollback_contract": "Omit this MOD from the Extension Manager plan; StateAxis retains BF16 KV and allocates no INT8 lifecycle state."
   },
   "scope": {
     "mechanism": "identity_bound_int8_kv_cache",
-    "supported_workloads": [],
+    "supported_workloads": [
+      "Qwen2.5-14B-shaped KV write-volume and storage-projection audit"
+    ],
     "out_of_scope": [
       "general performance claims",
       "automatic inheritance from StateAxis aggregate evidence"
     ]
   },
   "evidence": {
-    "qualification": "not-beneficial-in-tested-cell",
-    "latest_result": "evidence/ISSUE14_INT8_KV_CLOSURE.md",
+    "qualification": "historical-component-positive-full-model-accuracy-negative-active-experimental",
+    "latest_result": "evidence/ecpa-contract-20261011/RESULT.json",
     "index": "EVIDENCE.md",
     "performance_claims": [
       {
-        "label": "not-beneficial-in-tested-cell",
-        "scope": "frozen StateAxis source evidence only",
-        "result": "Component performance was positive, but full-model token exactness failed."
+        "label": "historical-real-npu-component-positive-full-model-accuracy-negative",
+        "scope": "frozen Qwen2.5-14B component and full-model evidence",
+        "result": "About 50% component KV-byte reduction and 5.7574% component P50 improvement; full-model exact greedy token parity failed for every tested layer range."
       }
     ]
   }

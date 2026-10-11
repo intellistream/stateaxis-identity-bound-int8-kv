@@ -1,0 +1,60 @@
+{
+  "schema_version": "stateaxis-research-mod/v1",
+  "mod_id": "org.vllm-hust.stateaxis-identity-bound-int8-kv",
+  "version": "0.2.0",
+  "mechanism": {
+    "name": "identity-bound-int8-kv-eligibility-audit",
+    "enabled": true,
+    "audit_only": true,
+    "control_cache_dtype": "bf16",
+    "candidate_cache_dtype": "int8",
+    "layout": "NZ-5D",
+    "scale_schema": "symmetric-per-layer-per-channel-bf16-v1",
+    "rounding": "nearest-even",
+    "clamp_min": -127,
+    "clamp_max": 127,
+    "zero_point": "none",
+    "layers": 48,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "block_tokens": 128,
+    "max_batch": 32,
+    "accuracy_qualified": false,
+    "protocol_dispatch": false,
+    "fallback_to_bf16": true,
+    "fail_closed": true
+  },
+  "host_contract": {
+    "provider": "stateaxis",
+    "api_range": ">=1,<2",
+    "implementation": "statecentric_engine:parse_identity_bound_int8_kv_additional_config",
+    "effect_counters": [
+      "int8_kv_candidate_batches",
+      "int8_kv_candidate_write_tokens",
+      "int8_kv_projected_bf16_bytes",
+      "int8_kv_projected_int8_bytes",
+      "int8_kv_static_scale_bytes",
+      "int8_kv_accuracy_blocked_batches"
+    ],
+    "lifecycle_state": []
+  },
+  "frozen_component_source": {
+    "repository": "Qixin-Gaoke/stateaxis",
+    "commit": "4555bfb787d318d9f7a1ad091ec218230ff535f9",
+    "writer_oracle_sha256": "5d0de5b1d9669457a588c7b803e21e48a50cab671210b4f5a4b29c78b641e973",
+    "writer_header_sha256": "a5b84124198fb3114d9e1158603133833425d3675692f1f5bcb849221fa74844",
+    "writer_kernel_sha256": "a69313050700ac4ac84c1515562eaa7dfd30d7e9600147c8e585f6865b78fd59",
+    "resident_probe_sha256": "d94dcd3738172fee01392fd66335181f65b160e787758a8d097b5a969b8ba743"
+  },
+  "qualification": {
+    "performance_qualified": false,
+    "evidence_label": "historical-real-npu-component-positive-full-model-accuracy-negative",
+    "scope": "Qwen2.5-14B BF16 control versus symmetric INT8 NZ-5D KV candidate",
+    "blockers": [
+      "the accepted component reduced KV bytes by about 50 percent and component P50 by 5.7574 percent",
+      "every tested full-model layer range failed exact greedy token parity",
+      "the active revision audits identity-bound eligibility and projected bytes but does not dispatch the rejected INT8 consumer",
+      "fresh accuracy qualification is required before matched serving performance tests"
+    ]
+  }
+}
