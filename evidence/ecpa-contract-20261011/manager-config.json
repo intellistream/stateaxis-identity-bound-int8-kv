@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "extensions": {
+    "org.vllm-hust.stateaxis-identity-bound-int8-kv": {
+      "enabled": true,
+      "configuration": {
+        "experiment_mode": true,
+        "host_api_version": "1.0",
+        "host_version": "1.0",
+        "protocol_versions": {
+          "stateaxis.mod-proposal.identity-bound-int8-kv": "1.0"
+        },
+        "research_manifest_path": "RESEARCH_MANIFEST.json"
+      }
+    }
+  }
+}
