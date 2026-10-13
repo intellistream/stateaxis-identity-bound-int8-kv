@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "version": "V214",
+  "classification": "rejected-hybrid-accuracy-negative-no-online-benchmark",
+  "performance_claim": false,
+  "source_commit": "c43d8afde429446a08550eb8850881998c28a3c7",
+  "full_model_binary_sha256": "fa391bdada99605bced47c3fd0c22c4bbdeb0b60a7944922dab446ce327a7f31",
+  "writer_sha256": "d6635bcfffcaf956a3b031b3ab33adc54ca8361964085695ce22e3e16527c866",
+  "scale_pack_sha256": "ef1e90bd9b209eed8cd925edc68d46f7aec88c5d922090cb0546d70576ffbdd0",
+  "scale_manifest_sha256": "8aa827972bb7292d313655f54494926bac47cdb78e012bfae9f9caf294cf4d64",
+  "workload": {
+    "physical_npu": 4,
+    "model_layers": 48,
+    "kv_dtype": "hybrid-bf16-int8",
+    "int8_layout": "NZ-5D",
+    "mandatory_generation_tokens": 128,
+    "single_layer_diagnostic_tokens": 3,
+    "teacher_forced_input": false
+  },
+  "bf16_paged_kv_bytes": 13690208256,
+  "candidates": [
+    {
+      "name": "A",
+      "int8_layer_range": [0, 34],
+      "kv_identity_sha256": "58f43f4da86d9e8478640f8bb31ae8556f2c5c63d2fdaf610cc1418944aad263",
+      "paged_kv_bytes": 8841789440,
+      "paged_kv_reduction_pct": 35.4152305453,
+      "short_screen_passed": true,
+      "mandatory_accuracy_passed": false,
+      "generated_prefix": [525, 264, 264],
+      "first_divergence_output_index_zero_based": 2,
+      "actual_token": 264,
+      "expected_token": 536,
+      "short_artifact_sha256": "957b736723a9946d657704b188e54a8368ddbd68b917c2d0f00e5636adfbb29c",
+      "long_artifact_sha256": "3b7b835cb9a6f1ccf79c28f756d46f0ea4763511a3219a38672b0a7d544326ad"
+    },
+    {
+      "name": "B",
+      "int8_layer_range": [14, 48],
+      "kv_identity_sha256": "583dcb888731268d93d0b91bef08cd64d6c6dd67aa18ca3cb5285058ea6a1718",
+      "paged_kv_bytes": 8841789440,
+      "paged_kv_reduction_pct": 35.4152305453,
+      "short_screen_passed": true,
+      "mandatory_accuracy_passed": false,
+      "generated_prefix": [525, 264, 264],
+      "first_divergence_output_index_zero_based": 2,
+      "actual_token": 264,
+      "expected_token": 536,
+      "short_artifact_sha256": "fc2a0d19a0ef5c1ffc44cc21113f923611de2c49f0abe070ac90f1e04096a9f2",
+      "long_artifact_sha256": "58d1ad789e3c3dbc46fa56498ed12419023d6e4abf69e7e662bcb047fd227ace"
+    },
+    {
+      "name": "C",
+      "int8_layer_range": [0, 14],
+      "kv_identity_sha256": "248dc87a70854e0db3789456735ccc2cd69dc0ca4fced01575699dc1613beab1",
+      "paged_kv_bytes": 11693916160,
+      "paged_kv_reduction_pct": 14.581897212,
+      "mandatory_accuracy_passed": false,
+      "generated_prefix": [525, 264, 264],
+      "long_artifact_sha256": "a78df1553c88e8d51f519f363da8034cad1d54e3193bf276af8dee9e585a0472"
+    },
+    {
+      "name": "D",
+      "int8_layer_range": [34, 48],
+      "kv_identity_sha256": "1497bd780f76fdbf0785d678ac48041301b11a6051fcff75c6f97e4f6526dc81",
+      "paged_kv_bytes": 11693916160,
+      "paged_kv_reduction_pct": 14.581897212,
+      "mandatory_accuracy_passed": false,
+      "generated_prefix": [525, 264, 264],
+      "long_artifact_sha256": "5fd112c7ad01342d43d9c32fe5fb7bf2c325da18777b92224f5fa3f4096a92e6"
+    },
+    {
+      "name": "single-layer-0",
+      "int8_layer_range": [0, 1],
+      "kv_identity_sha256": "bec0a4fa9062f1c13115dbb3ab39885556c547607d0fae4b18c318c5f8aa4fe5",
+      "paged_kv_bytes": 13547798528,
+      "paged_kv_reduction_pct": 1.04023054534,
+      "three_token_accuracy_passed": false,
+      "generated_token_ids": [525, 264, 264],
+      "artifact_sha256": "1329e81430180f2b3522efd0153469f7bf8f3e82a515be8ac43d55db76a76057"
+    },
+    {
+      "name": "single-layer-47",
+      "int8_layer_range": [47, 48],
+      "kv_identity_sha256": "4407f8610329034fa279e1ad091c60fb76f82ade4ded9d3cb56d82318e2a2b73",
+      "paged_kv_bytes": 13547798528,
+      "paged_kv_reduction_pct": 1.04023054534,
+      "three_token_accuracy_passed": false,
+      "generated_token_ids": [525, 264, 264],
+      "artifact_sha256": "1371bf6fa0dd75b6ab55fad4f367d6d7d422c91a79c38e7bec8587d5d97b8357"
+    }
+  ],
+  "execution_integrity": {
+    "short_screen_exit_code": 0,
+    "rejected_accuracy_exit_code": 3,
+    "all_stderr_empty": true,
+    "npu_returned_to_idle_after_each_run": true
+  },
+  "decision": {
+    "hybrid_dispatch_and_byte_accounting_passed": true,
+    "any_accuracy_candidate_passed": false,
+    "online_benchmark_authorized": false,
+    "native_vllm_comparison_changed": false,
+    "reason": "every screened range, including either single edge layer, changes the third generated token"
+  },
+  "invalid_or_failed_attempts": [
+    "V214 focused test r01: obsolete execution-config fixture prevented intended component override check",
+    "V214 focused test r02: default range parsing dereferenced resident-plan state before initialization",
+    "first local planning patch used reverse file-context order and failed atomically"
+  ]
+}

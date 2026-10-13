@@ -33,13 +33,13 @@
   },
   "evidence": {
     "qualification": "historical-component-positive-full-model-accuracy-negative-active-experimental",
-    "latest_result": "evidence/ecpa-contract-20261011/RESULT.json",
+    "latest_result": "evidence/historical-real-npu-accuracy-gate/qwen14b_hybrid_kv_full_model_v214_audit.json",
     "index": "EVIDENCE.md",
     "performance_claims": [
       {
         "label": "historical-real-npu-component-positive-full-model-accuracy-negative",
         "scope": "frozen Qwen2.5-14B component and full-model evidence",
-        "result": "About 50% component KV-byte reduction and 5.7574% component P50 improvement; full-model exact greedy token parity failed for every tested layer range."
+        "result": "About 50% component KV-byte reduction and 5.7574% component P50 improvement; full-model exact greedy token parity failed for every tested layer range, so matched online ON/OFF was stopped at the correctness gate."
       }
     ]
   }

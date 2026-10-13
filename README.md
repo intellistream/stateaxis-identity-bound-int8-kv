@@ -16,6 +16,9 @@ the historical INT8 device consumer is not dispatched. The frozen component
 reduced cache bytes by about 50% and improved component P50 by 5.7574%, but
 every tested full-model layer range failed exact greedy token parity, including
 a one-layer candidate. Projected bytes are not measured HBM or capacity gains.
+The frozen audit and preregistration records are vendored under
+`evidence/historical-real-npu-accuracy-gate/` with repo-local SHA-256 checks.
+Online ON/OFF was intentionally stopped at the correctness gate.
 
 ## Install and validate
 

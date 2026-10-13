@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "version": "V215-r01",
+  "hypothesis": "the V157 teacher-forced max-abs safety margin leaves an avoidable resolution/clipping tradeoff that can recover exact autoregressive decisions without changing the fused INT8 KV consumer",
+  "parent": {
+    "version": "V157-r04",
+    "manifest_path": ".benchmarks/qwen14b-kv-calibration-v157-r04-npu4/calibration_manifest.json",
+    "manifest_sha256": "8aa827972bb7292d313655f54494926bac47cdb78e012bfae9f9caf294cf4d64",
+    "scale_pack_path": ".benchmarks/qwen14b-int8-kv-scale-pack-v158-r02/kv_scales.bin",
+    "scale_pack_sha256": "ef1e90bd9b209eed8cd925edc68d46f7aec88c5d922090cb0546d70576ffbdd0",
+    "safety_margin": "1.05"
+  },
+  "scale_multipliers": [
+    "0.5",
+    "0.75",
+    "0.875",
+    "0.9523809523809523",
+    "1.0",
+    "1.125",
+    "1.25"
+  ],
+  "screen": {
+    "physical_npu": 4,
+    "int8_layer_range": [0, 1],
+    "generation_tokens": 3,
+    "expected_token_ids": [525, 264, 536],
+    "advance_rule": "only multipliers with exact three-token parity may be screened on layer 47 and the mandatory 128-token oracle"
+  },
+  "acceptance": {
+    "scale_dtype": "BF16",
+    "scale_granularity": "per-layer-per-kv-channel",
+    "rounding": "round-to-nearest",
+    "clamp": "[-127,127]",
+    "all_child_manifests_and_packs_identity_bound": true,
+    "exact_greedy_generation_required": true,
+    "online_benchmark_before_accuracy_gate": false
+  },
+  "claim_boundary": {
+    "research_only": true,
+    "online_integration_permitted": false,
+    "performance_claim": false
+  }
+}
