@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "version": "V216",
+  "hypothesis": "The installed Atlas A2 FIAS V4 consumer accepts paired per-channel BF16 K/V antiquant offsets and applies (int8 + offset) * scale.",
+  "scope": "consumer capability only; no production writer, model state, accuracy or online throughput claim",
+  "physical_npu": 4,
+  "fixture": {
+    "batch": 1,
+    "query_heads": 40,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "block_tokens": 128,
+    "sequence_tokens": 128,
+    "cache_layout": "INT8 NZ [blocks,kv_heads,head_dim/32,block_tokens,32]",
+    "scale_dtype": "BF16",
+    "offset_dtype": "BF16",
+    "scale_shape": [8, 1, 128],
+    "offset_shape": [8, 1, 128]
+  },
+  "candidate_equations": [
+    "(q + offset) * scale",
+    "(q - offset) * scale",
+    "q * scale + offset"
+  ],
+  "advance_rule": {
+    "operator_exit": 0,
+    "selected_equation": "(q + offset) * scale",
+    "selected_max_abs_error_lte": 0.03125,
+    "runner_up_error_ratio_gte": 4.0,
+    "stderr": "empty",
+    "post_run_npu4": "clean"
+  },
+  "prohibitions": [
+    "Do not change the production writer or scale-pack schema before this capability gate passes.",
+    "Do not run full-model or online Native-vLLM-HUST work from this component result."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "version": "V217",
+  "classification": "valid-three-token-accuracy-negative-with-invalid-derived-runner-marker",
+  "performance_claim": false,
+  "runtime_commit": "8fb80c7a9d4a634fe9d0244c864af67cff4a0bad",
+  "runner_sha256": "fb13fb3d062254ddb092a4465204e2b2046ed2a79dfc96ed03ba3b2c5b62a1d4",
+  "preregistration_sha256": "56fde70610a86a472ced3f006c5e2f6ac51563da014d28ae463865902f9462e9",
+  "full_model_binary_sha256": "fa391bdada99605bced47c3fd0c22c4bbdeb0b60a7944922dab446ce327a7f31",
+  "writer_sha256": "d6635bcfffcaf956a3b031b3ab33adc54ca8361964085695ce22e3e16527c866",
+  "scale_pack_sha256": "ef1e90bd9b209eed8cd925edc68d46f7aec88c5d922090cb0546d70576ffbdd0",
+  "scale_manifest_sha256": "8aa827972bb7292d313655f54494926bac47cdb78e012bfae9f9caf294cf4d64",
+  "workload": {
+    "physical_npu": 4,
+    "int8_layer_range": [14, 34],
+    "bf16_layer_ranges": [[0, 14], [34, 48]],
+    "generation_tokens": 3,
+    "expected_token_ids": [525, 264, 536],
+    "teacher_forced_input": false
+  },
+  "raw_result": {
+    "result_sha256": "199fe8a3dc5da7e23830ff12c29523182f7f69b9ab6dced473b95cf71a133e06",
+    "exit_code": 3,
+    "exit_sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_empty": true,
+    "npu_post_sha256": "0f402f31af921f1c524374aff05ca9738b04c91358ae3737bb3f862e4f9f8047",
+    "npu_post_clean": true,
+    "kv_cache_identity_sha256": "32c018270a40701f773743d03dfbbc6af36a80c29b6b5b6861a86b1a851b1769",
+    "generated_token_ids": [525, 264, 264],
+    "token_parity": false,
+    "paged_kv_total_bytes": 10838278144,
+    "paged_kv_reduction_pct": 20.831897212009803
+  },
+  "custody_exceptions": {
+    "preregistered_byte_prediction": 10842013696,
+    "byte_prediction_valid": false,
+    "correct_allocation_formula": "13690208256 + 196608 - 142606336 * int8_layer_count",
+    "complete_marker_sha256": "a9f4388a8c9d97a1b67c557c3e4f6a476b34371389dac03efa26b5ee6458a5c5",
+    "complete_marker_valid": false,
+    "reason": "a Python byte assertion failed but Bash conditional-function semantics did not propagate the validation failure"
+  },
+  "decision": {
+    "three_token_gate_passed": false,
+    "mandatory_128_token_gate_authorized": false,
+    "online_benchmark_authorized": false,
+    "native_vllm_comparison_changed": false,
+    "npu_rerun_required": false,
+    "reason": "the authoritative raw three-token result already reproduces the wrong third token, so the accuracy advance gate is closed despite the invalid derived marker"
+  }
+}

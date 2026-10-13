@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "version": "V216",
+  "classification": "valid-fused-consumer-capability-negative-no-accuracy-or-throughput",
+  "performance_claim": false,
+  "source_commit": "8de9d5cecef352331a6922b9f0a143bc0dad722f",
+  "probe_sha256": "ae9f1077237721f37e18053d3e360058ccf05c8e8e7264a0abc35d834a556dca",
+  "preregistration_sha256": "3b2e68a06a9125c391ed238b348e16b75510c98ddadbefdfc6ee304838c43079",
+  "runner_sha256": "2043002678b8c2ca4c39aaae73533428485d7da8965d68d55a6a1f96381ff057",
+  "workload": {
+    "physical_npu": 4,
+    "batch": 1,
+    "query_heads": 40,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "sequence_tokens": 128,
+    "cache_layout": "INT8 NZ",
+    "scale_and_offset_shape": [8, 1, 128],
+    "scale_and_offset_dtype": "BF16"
+  },
+  "attempts": [
+    {
+      "name": "r01",
+      "classification": "invalid-pre-device-invocation",
+      "exit_code": 2,
+      "stderr_sha256": "0f6f2645bdd4230105b9d2cddcaf4e22cc32db900aab1cc0334cebf58ae98b70",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "admission_npu4_sha256": "3d111ab6de18ebdb4ff9b5f09c58f271bc50cc6269ba5a5ace5768053b118e01",
+      "post_npu4_sha256": "3d111ab6de18ebdb4ff9b5f09c58f271bc50cc6269ba5a5ace5768053b118e01",
+      "result_json_present": false,
+      "reason": "runner used /workspace/benchmarks although the repo is mounted at /workspace/statecentric-ascend-engine"
+    },
+    {
+      "name": "r02",
+      "classification": "valid-capability-rejection-not-a-strict-benchmark",
+      "exit_code": 1,
+      "stderr_sha256": "c39d3e9fd768c52a2fb690387aefb2549823cb8d0ea3c5c2f12bb6cfab54fd27",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "admission_npu4_sha256": "3d111ab6de18ebdb4ff9b5f09c58f271bc50cc6269ba5a5ace5768053b118e01",
+      "post_npu4_sha256": "3d111ab6de18ebdb4ff9b5f09c58f271bc50cc6269ba5a5ace5768053b118e01",
+      "result_json_present": false,
+      "stderr_empty": false,
+      "stderr_contains_setup_warning": true,
+      "aclnn_error_code": 561002,
+      "installed_dispatch": "aclnnFusedInferAttentionScoreV3",
+      "operator_diagnostic": "the key's dequant offset not support for IFA GQA with KV NZ",
+      "reason": "the fused production geometry rejects the required key offset during tiling before any equation comparison"
+    }
+  ],
+  "decision": {
+    "asymmetric_offset_supported_for_production_geometry": false,
+    "dequantization_equation_measured": false,
+    "writer_change_authorized": false,
+    "full_model_accuracy_authorized": false,
+    "online_benchmark_authorized": false,
+    "native_vllm_comparison_changed": false,
+    "reason": "the deployed FIAS V3 path does not support key dequant offset for IFA GQA with KV NZ"
+  }
+}

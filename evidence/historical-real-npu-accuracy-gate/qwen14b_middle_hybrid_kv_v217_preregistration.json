@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "version": "V217",
+  "hypothesis": "Keeping both edge regions BF16 while using INT8 NZ KV only for layers [14,34) preserves exact greedy generation and reduces paged-KV bytes by 20.8046109%.",
+  "physical_npu": 4,
+  "reuse_identity": {
+    "full_model_binary_sha256": "fa391bdada99605bced47c3fd0c22c4bbdeb0b60a7944922dab446ce327a7f31",
+    "writer_sha256": "d6635bcfffcaf956a3b031b3ab33adc54ca8361964085695ce22e3e16527c866",
+    "scale_pack_sha256": "ef1e90bd9b209eed8cd925edc68d46f7aec88c5d922090cb0546d70576ffbdd0",
+    "scale_manifest_sha256": "8aa827972bb7292d313655f54494926bac47cdb78e012bfae9f9caf294cf4d64"
+  },
+  "candidate": {
+    "int8_layer_range": [14, 34],
+    "bf16_layer_ranges": [[0, 14], [34, 48]],
+    "int8_layer_count": 20,
+    "expected_paged_kv_total_bytes": 10842013696,
+    "bf16_paged_kv_total_bytes": 13690208256,
+    "expected_reduction_pct": 20.804610906862745
+  },
+  "gates": [
+    {
+      "name": "three-token",
+      "expected_token_ids": [525, 264, 536],
+      "required_exit_code": 0,
+      "stderr": "empty"
+    },
+    {
+      "name": "128-token",
+      "conditional_on": "three-token exact",
+      "expected_length": 128,
+      "required_token_parity": true,
+      "required_exit_code": 0,
+      "stderr": "empty"
+    }
+  ],
+  "online_benchmark_authorized": false,
+  "advance_rule": "Only an exact, stderr-clean 128-token pass may authorize a separately preregistered online candidate and fresh HUST refresh."
+}

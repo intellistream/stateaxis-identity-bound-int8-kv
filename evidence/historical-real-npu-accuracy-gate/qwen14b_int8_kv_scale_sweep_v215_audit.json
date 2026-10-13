@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "version": "V215",
+  "classification": "rejected-scale-fidelity-negative-no-long-or-online-benchmark",
+  "performance_claim": false,
+  "runtime_commit": "d095761fcf3db4daf97be45b3afd89fb6f904924",
+  "full_model_binary_sha256": "fa391bdada99605bced47c3fd0c22c4bbdeb0b60a7944922dab446ce327a7f31",
+  "writer_sha256": "d6635bcfffcaf956a3b031b3ab33adc54ca8361964085695ce22e3e16527c866",
+  "parent_manifest_sha256": "8aa827972bb7292d313655f54494926bac47cdb78e012bfae9f9caf294cf4d64",
+  "preregistration_sha256": "b8774a2fbb2840d96e0d210fbf8a1a044f198c8e127d62cfa1d20fd4bbabb14e",
+  "variant_index_sha256": "c416f7a103b6a0a840de732926eff0f46a7249bfee5104d62d41b985704c53a8",
+  "workload": {
+    "physical_npu": 4,
+    "int8_layer_range": [0, 1],
+    "generation_tokens": 3,
+    "expected_token_ids": [525, 264, 536],
+    "teacher_forced_input": false
+  },
+  "results": [
+    {
+      "factor": "0.5",
+      "effective_safety_margin": "0.525",
+      "manifest_sha256": "549f63cdfa8afe23230f93512f24c5bbf17964edb78cc3785639f8e52c46e311",
+      "pack_sha256": "688c1996c89833c652449420162bf32e54b918ae1b1913a98e4acfd835a331c6",
+      "result_sha256": "737ea109e56026e45867cd5bc750b9d41c24cfeefac60dfa8db2db000eb6f541",
+      "kv_identity_sha256": "a44c60d71846c7577b22965475887da2eea2f55867c33a56a1152750ea19c3a2",
+      "generated_token_ids": [525, 264, 264],
+      "token_parity": false
+    },
+    {
+      "factor": "0.75",
+      "effective_safety_margin": "0.7875",
+      "manifest_sha256": "fb3f4dd5cf3d3af10b4deb4d2551f460856c68997be3fb9c6da1d7e7118a699c",
+      "pack_sha256": "0fa4dde5175d2bd17a4be64bc5d16411b38d858de5fba2902f68aee593a61672",
+      "result_sha256": "30f89c0aa020a74e632074e96fde7b846ce5d38364f208c1fa4da845843e41e3",
+      "kv_identity_sha256": "54f063a12403c4c6e311a3aa3edadac1166b2a3647ba2280897e163bc4348f83",
+      "generated_token_ids": [525, 264, 264],
+      "token_parity": false
+    },
+    {
+      "factor": "0.875",
+      "effective_safety_margin": "0.91875",
+      "manifest_sha256": "1791387d44f926946bbadfd15022a9c89cccf197a539e8c042fecfce1856c74f",
+      "pack_sha256": "9c4cb87ced539d1e8f53a6d797b65ce96661f3adbeee02fd6c6225b891432d05",
+      "result_sha256": "0aa8c9745e2c480034fe5009de15ff9cf546a5dcfb2710976f687e4b6c17c59a",
+      "kv_identity_sha256": "f8d21b6e7c67482aadf519b6f23afceb6afeb88c373ddb29908e5ed8e043b1bd",
+      "generated_token_ids": [525, 264, 264],
+      "token_parity": false
+    },
+    {
+      "factor": "0.9523809523809523",
+      "effective_safety_margin": "0.999999999999999915",
+      "manifest_sha256": "3fa861da4810cbb95597e5f57a0f07b182cdec6f9902043278edb705e4922ad6",
+      "pack_sha256": "3b0840c4ed8e543515288b720c72f6c9b50a74b95dc94c618b64bf9e91deb595",
+      "result_sha256": "b3e672c391fe41d607e3fff5b5845a5d5f0474220508c65edd6586bb24a61c3d",
+      "kv_identity_sha256": "4da51c7d41da3ac26b3b19ceb7dd17cc261fbceffd785b4f2f98da8d86b4c1fa",
+      "generated_token_ids": [525, 264, 264],
+      "token_parity": false
+    },
+    {
+      "factor": "1.0",
+      "effective_safety_margin": "1.050",
+      "manifest_sha256": "644e1c9234e7700fcbfa2526acb85bc495d6458ae21cf4639012622decc39db3",
+      "pack_sha256": "a8a0daec4a316ef57d73105ee3e063e6255565e725cda76380536f16ad96ffdc",
+      "result_sha256": "e6b14bed33b1f5315aeb42332d3b24222e20a0f0adcf97cec06ccebc105b1ea0",
+      "kv_identity_sha256": "9ca1120ebb96bf385605b1bb7b371f33aa807b96d59fe7d4c903f1d022fba5b1",
+      "generated_token_ids": [525, 264, 264],
+      "token_parity": false
+    },
+    {
+      "factor": "1.125",
+      "effective_safety_margin": "1.18125",
+      "manifest_sha256": "49553e072efd2a1ab689c12e6996e2a534cf2facb40014842f9ca1333304ef32",
+      "pack_sha256": "5e51730716f23f4214a338e294c44c845117f2ffb1b66bc34a9e2c53e9b5c1d6",
+      "result_sha256": "8b55e8e72d43d6e7e9223d953565498471bf0850cbf68dba0841457a92a6a022",
+      "kv_identity_sha256": "ac62736eaa5bc362f91a1e78f454a01990b9d2102a98134106fd8fbe942efecc",
+      "generated_token_ids": [525, 264, 264],
+      "token_parity": false
+    },
+    {
+      "factor": "1.25",
+      "effective_safety_margin": "1.3125",
+      "manifest_sha256": "e5a7bb55fe780f989cad65b2dde734c9e4b014dcd37bca41c63dd1d48abd1058",
+      "pack_sha256": "e28ea63e52ed4c250b4fe3e34e887b06cc48660aa17c6fa6b7e011dcc34a7d1e",
+      "result_sha256": "2da220665c69efd11f311d9067342fdaccfc03baa0affb47bbf6cb10a67d905b",
+      "kv_identity_sha256": "c8ec717673a110c9828f6faac60d29dead5d06ecc4538fff3af0510028de8e36",
+      "generated_token_ids": [525, 264, 264],
+      "token_parity": false
+    }
+  ],
+  "execution_integrity": {
+    "result_count": 7,
+    "all_exit_code": 3,
+    "all_stderr_empty": true,
+    "all_npu_teardowns_clean": true,
+    "paged_kv_bytes_each": 13547798528,
+    "paged_kv_reduction_pct_each": 1.04023054534
+  },
+  "invalid_or_failed_attempts": [
+    "initial launch: runner mode 100644 caused shell status 126 before output creation",
+    "r01: redundant CANN setup emitted stderr warnings",
+    "r02: login shell emitted the same stderr warnings",
+    "r03: docker interactive stdin consumed the factor stream after one valid result",
+    "r04 derived summary mislabeled all rows as factor 1.25; raw per-factor artifacts remain authoritative"
+  ],
+  "invalid_derived_summary_sha256": "b7d561bb6e3b277b56725bc7d8ccfcaabd6c578ba823f92144327fcbc33ef1f8",
+  "decision": {
+    "any_three_token_candidate_passed": false,
+    "layer47_screen_authorized": false,
+    "mandatory_128_token_gate_authorized": false,
+    "online_benchmark_authorized": false,
+    "native_vllm_comparison_changed": false,
+    "reason": "all seven global scale multipliers reproduce the same wrong third token, rejecting a simple global scale-margin fix"
+  }
+}
